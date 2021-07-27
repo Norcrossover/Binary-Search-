@@ -15,17 +15,17 @@ void Tree::initTree(const char * fileName) {
 
 	if (inputFile.good()) {
 		while (!inputFile.eof()) {
-			Object * obj = new Object();
+			Object * object = new Object();
 			// string
 			inputFile.getline(stringBuffer, MAX_SIZE, ',');
-			obj->setStr(stringBuffer);
+			object->setStr(stringBuffer);
 
 			// int val
 			inputFile >> intBuffer;
-			obj->setNum(intBuffer);
+			object->setNum(intBuffer);
 
-			// add the object to the tree
-			add((obj);
+			// add the objectect to the tree
+			add((object);
 			size++;
 		}
 	}	
@@ -40,27 +40,27 @@ void Tree:~Tree() {
 
 
 
-bool Tree::retrieve(const char * key, Object *& obj) const {
+bool Tree::retrieve(const char * key, Object *& object) const {
 	if (root) {
-		return retrieve(key, root, obj);
+		return retrieve(key, root, object);
 	}
 	return false;
 }
 
 
 
-bool Tree::retrieve(const char * key, Node * currRoot, Object *& obj) const {
+bool Tree::retrieve(const char * key, Node * currRoot, Object *& object) const {
 	if (curr) {
-		int compare  = strcmp(key, curr->obj->getStr());
+		int compare  = strcmp(key, curr->object->getStr());
 		if (compare==0) {
-			*obj = curr->obj;
+			*object = curr->object;
 			return true;
 		}
 		else if (compare<0) {
-			return retrieve(key, curr->left, obj);
+			return retrieve(key, curr->left, object);
 		}
 		else if (compare>0) {
-			return retrieve(key, curr->right, obj);
+			return retrieve(key, curr->right, object);
 		}
 		else {
 			return false;
@@ -73,16 +73,16 @@ bool Tree::retrieve(const char * key, Node * currRoot, Object *& obj) const {
 
 bool displayObject(const char * key) {
 	int idx = 0;
-	Object * obj = new Object();
-	if (retrieve(key, obj) == false) {
+	Object * object = new Object();
+	if (retrieve(key, object) == false) {
 		cout << endl << key << " could not be found." << endl << endl;
 		return false;
 	}
 	else {
 		cout << endl << endl;
 		cout << "\t\tData found from " << key << endl << endl;
-		obj->display();
-		if (obj) delete obj;
+		object->display();
+		if (object) delete object;
 		return true;
 	}
 }
