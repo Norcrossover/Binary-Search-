@@ -9,12 +9,12 @@ class Tree {
 		~Tree();
 
 		// accessors
-		bool retrieve(const char * key, Obj *& obj) const;
-		bool displayObj(const char * key);
+		bool retrieve(const char * key, Object *& obj) const;
+		bool displayObject(const char * key);
 		int getSize() const;
 
 		// mutators
-		void add(Obj *& newObj);
+		void add(Object *& newObject);
 		bool removeKey(const char * key);
 		
 
@@ -24,14 +24,14 @@ class Tree {
 				data = nullptr;
 				left = right = nullptr;
 			}
-			Node(Obj *& newObj) {
-				obj = newObj;
+			Node(Object *& newObject) {
+				obj = newObject;
 				left = right = nullptr;
 			}
 			~Node() {
 				if (obj) delete obj;
 			}
-			Obj * obj;
+			Object * obj;
 			Node * left;
 			Node * right;
 		};
@@ -46,6 +46,6 @@ class Tree {
 		void displayInorder(ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
-		bool retrieve(const char * key, Node * currRoot, Obj *& obj) const;
+		bool retrieve(const char * key, Node * currRoot, Object *& obj) const;
 		bool removeKey(Node *& curr, const char * key);
 };

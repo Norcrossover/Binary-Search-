@@ -3,11 +3,11 @@
 #include <iostream>
 const int MAX_SIZE = 256;
 
-class Obj {
+class Object {
 	public:
 		// constructor and destructor
-		Obj();
-		~Obj();
+		Object();
+		~Object();
 	
 		// accessors
 		char * getString();

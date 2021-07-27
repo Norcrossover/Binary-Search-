@@ -15,7 +15,7 @@ void Tree::initTree(const char * fileName) {
 
 	if (inputFile.good()) {
 		while (!inputFile.eof()) {
-			Obj * obj = new Obj();
+			Object * obj = new Object();
 			// string
 			inputFile.getline(stringBuffer, MAX_SIZE, ',');
 			obj->setStr(stringBuffer);
@@ -40,7 +40,7 @@ void Tree:~Tree() {
 
 
 
-bool Tree::retrieve(const char * key, Obj *& obj) const {
+bool Tree::retrieve(const char * key, Object *& obj) const {
 	if (root) {
 		return retrieve(key, root, obj);
 	}
@@ -49,7 +49,7 @@ bool Tree::retrieve(const char * key, Obj *& obj) const {
 
 
 
-bool Tree::retrieve(const char * key, Node * currRoot, Obj *& obj) const {
+bool Tree::retrieve(const char * key, Node * currRoot, Object *& obj) const {
 	if (curr) {
 		int compare  = strcmp(key, curr->obj->getStr());
 		if (compare==0) {
@@ -71,9 +71,9 @@ bool Tree::retrieve(const char * key, Node * currRoot, Obj *& obj) const {
 
 
 
-bool displayObj(const char * key) {
+bool displayObject(const char * key) {
 	int idx = 0;
-	Obj * obj = new Obj();
+	Object * obj = new Object();
 	if (retrieve(key, obj) == false) {
 		cout << endl << key << " could not be found." << endl << endl;
 		return false;

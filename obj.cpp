@@ -2,14 +2,14 @@
 
 
 
-Obj::Obj() {
+Object::Object() {
 	str = nullptr;
 	num = 0;
 }
 
 
 
-Obj::~Obj() {
+Object::~Object() {
 	if (str) delete str;
 	str = nullptr;
 	num = 0;
@@ -17,19 +17,19 @@ Obj::~Obj() {
 
 
 
-char * Obj::getString() {
+char * Object::getString() {
 	return str;
 }
 
 
 
-int Obj::getNum() {
+int Object::getNum() {
 	return num;
 }
 
 
 
-void Obj::display() {
+void Object::display() {
 	cout << endl << endl;
 	cout << "STRING: " << getString();
 	cout << "NUM:    " << getNum();
@@ -38,13 +38,13 @@ void Obj::display() {
 
 
 
-void Obj::setStr(const char * string) {
+void Object::setStr(const char * string) {
 	if (str) delete str;
 	strcpy(str, string);;
 }
 
 
 
-void Obj::setNum(const int number) {
+void Object::setNum(const int number) {
 	num = number;
 }
