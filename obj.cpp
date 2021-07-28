@@ -30,10 +30,10 @@ int Object::getNumber() {
 
 
 void Object::display() {
-	cout << endl << endl;
-	cout << "STRING: " << getString();
-	cout << "NUM:    " << getNumber();
-	cout << endl << endl;
+	std::cout << std::endl << std::endl;
+	std::cout << "STRING: " << getString();
+	std::cout << "NUM:    " << getNumber();
+	std::cout << std::endl << std::endl;
 }
 
 
