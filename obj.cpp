@@ -38,13 +38,13 @@ void Object::display() {
 
 
 
-void Object::setStr(const char * string) {
+void Object::setString(const char * string) {
 	if (str) delete str;
 	strcpy(str, string);;
 }
 
 
 
-void Object::setNum(const int number) {
+void Object::setNumber(const int number) {
 	num = number;
 }

@@ -11,12 +11,12 @@ class Object {
 	
 		// accessors
 		char * getString();
-		int getNum();
+		int getNumber();
 		void display();
 		
 		// mutators
-		void setStr(const char * string);
-		void setNum(const int number);
+		void setString(const char * string);
+		void setNumber(const int number);
 
 	private:
 		char * str;
