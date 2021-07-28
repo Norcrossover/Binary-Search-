@@ -42,8 +42,8 @@ class Tree {
 		void destroy(Node *& currRoot);
 		
 		// display tree functions
-	    void display(ostream& out, Node * currRoot);	
-		void displayInorder(ostream& out, Node * currRoot, int& index) const;
+    		void display(std::ostream& out, Node * currRoot);	
+		void displayInorder(std::ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
 		bool retrieve(const char * key, Node * currRoot, Object *& object) const;
