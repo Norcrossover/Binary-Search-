@@ -48,3 +48,12 @@ void Object::setString(const char * string) {
 void Object::setNumber(const int number) {
 	num = number;
 }
+
+
+
+
+void Object::operator=(Const Object& newObject) {
+	setString(newObject.getString());
+	setNumber(newObject.getNumber());
+}
+

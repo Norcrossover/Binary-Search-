@@ -53,7 +53,7 @@ bool Tree::retrieve(const char * key, Node * curr, Object *& object) const {
 	if (curr) {
 		int compare  = strcmp(key, curr->object->getString());
 		if (compare==0) {
-			*object = curr->object;
+			*object = *(curr->object);
 			return true;
 		}
 		else if (compare<0) {

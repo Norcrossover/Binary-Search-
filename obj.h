@@ -17,6 +17,7 @@ class Object {
 		// mutators
 		void setString(const char * string);
 		void setNumber(const int number);
+		void operator=(const Object& newObject);
 
 	private:
 		char * str;
