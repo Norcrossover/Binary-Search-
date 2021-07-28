@@ -18,11 +18,11 @@ void Tree::initTree(const char * fileName) {
 			Object * object = new Object();
 			// string
 			inputFile.getline(stringBuffer, MAX_SIZE, ',');
-			object->setStr(stringBuffer);
+			object->setString(stringBuffer);
 
 			// int val
 			inputFile >> intBuffer;
-			object->setNum(intBuffer);
+			object->setNumber(intBuffer);
 
 			// add the objectect to the tree
 			add(object);
