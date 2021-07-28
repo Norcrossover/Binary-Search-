@@ -71,7 +71,7 @@ bool Tree::retrieve(const char * key, Node * curr, Object *& object) const {
 
 
 
-bool displayObject(const char * key) {
+bool Tree::displayObject(const char * key) {
 	int idx = 0;
 	Object * object = new Object();
 	if (retrieve(key, object) == false) {
