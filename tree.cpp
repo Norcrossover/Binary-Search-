@@ -75,12 +75,12 @@ bool displayObject(const char * key) {
 	int idx = 0;
 	Object * object = new Object();
 	if (retrieve(key, object) == false) {
-		std::cout << endl << key << " could not be found." << endl << endl;
+		std::cout << std::endl << key << " could not be found." << std::endl << std::endl;
 		return false;
 	}
 	else {
-		std::cout << endl << endl;
-		std::cout << "\t\tData found from " << key << endl << endl;
+		std::cout << std::endl << std::endl;
+		std::cout << "\t\tData found from " << key << std::endl << std::endl;
 		object->display();
 		if (object) delete object;
 		return true;
