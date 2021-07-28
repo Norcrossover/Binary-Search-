@@ -10,7 +10,7 @@ Tree::Tree() : root(nullptr), size(0) {}
 void Tree::initTree(const char * fileName) {
 	char stringBuffer[MAX_SIZE];
 	int intBuffer = 0;
-	ifstream = inputFile;
+	std::ifstream inputFile;
 	inputFile.open(fileName);
 
 	if (inputFile.good()) {
@@ -25,7 +25,7 @@ void Tree::initTree(const char * fileName) {
 			object->setNum(intBuffer);
 
 			// add the objectect to the tree
-			add((object);
+			add(object);
 			size++;
 		}
 	}	
@@ -33,7 +33,7 @@ void Tree::initTree(const char * fileName) {
 
 
 
-void Tree:~Tree() {
+Tree::~Tree() {
 	destroy(root);
 }
 
