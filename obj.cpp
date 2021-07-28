@@ -23,7 +23,7 @@ char * Object::getString() {
 
 
 
-int Object::getNum() {
+int Object::getNumber() {
 	return num;
 }
 
@@ -32,7 +32,7 @@ int Object::getNum() {
 void Object::display() {
 	cout << endl << endl;
 	cout << "STRING: " << getString();
-	cout << "NUM:    " << getNum();
+	cout << "NUM:    " << getNumber();
 	cout << endl << endl;
 }
 
