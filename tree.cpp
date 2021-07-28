@@ -49,7 +49,7 @@ bool Tree::retrieve(const char * key, Object *& object) const {
 
 
 
-bool Tree::retrieve(const char * key, Node * currRoot, Object *& object) const {
+bool Tree::retrieve(const char * key, Node * curr, Object *& object) const {
 	if (curr) {
 		int compare  = strcmp(key, curr->object->getStr());
 		if (compare==0) {
