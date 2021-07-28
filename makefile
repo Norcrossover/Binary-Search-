@@ -4,9 +4,10 @@ OBJS = main.o tree.o obj.o
 
 main: $(OBJS)
 
-#main.o: tree.h obj.h
-main.o: obj.h
+main.o: tree.h obj.h
 
-#tree.o: tree.h obj.h
+tree.o: tree.h obj.h
 
-obj.o: obj.h
+clean:
+	echo "cleaning repository"
+	rm *.o main
