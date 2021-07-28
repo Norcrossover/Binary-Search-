@@ -52,8 +52,8 @@ void Object::setNumber(const int number) {
 
 
 
-void Object::operator=(Const Object& newObject) {
-	setString(newObject.getString());
-	setNumber(newObject.getNumber());
+void Object::operator=(const Object& newObject) {
+	setString(newObject.str);
+	setNumber(newObject.num);
 }
 
