@@ -42,7 +42,7 @@ class Tree {
 		void destroy(Node *& currRoot);
 		
 		// display tree functions
-    		void display(std::ostream& out, Node * currRoot);	
+    	void display(std::ostream& out, Node * currRoot);	
 		void displayInorder(std::ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
