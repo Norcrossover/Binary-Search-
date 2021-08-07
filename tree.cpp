@@ -2,7 +2,6 @@
 
 
 
-// ---------------------------- public functions
 Tree::Tree() : root(nullptr), size(0) {}
 
 
@@ -89,4 +88,18 @@ bool Tree::displayObject(const char * key) {
 
 
 
+void Tree::display(std::ostream& out, Node * currRoot){
 
+}
+
+
+
+void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const {
+
+}
+
+
+
+void Tree::add(const char * key, Object *& object) const {
+	
+}
