@@ -89,7 +89,7 @@ bool Tree::findObject(const char * key) {
 
 
 
-bool display() {
+bool Tree::display(std::ostream& out) {
 	int input;
 	std::cout << "Choose which format to display the Tree: " << std::endl;
 	std::cout << "0. Go Back" << std::endl;
@@ -99,7 +99,7 @@ bool display() {
 	std::cin >> input;
         if (input == 0) return true;
 	else if (input == 1) {
-		displayInorder(std::ostream& out, Node * currRoot, int& index);
+		displayInorder(out, root, index);
 		return true;
 	}
 	/*
@@ -117,7 +117,7 @@ bool display() {
 
 
 
-void displayInorder(std::ostream& out, Node * currRoot, int& index) const {
+void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const {
 	if (currRoot) {
 		displayInorder(out, currRoot->left, index);
 		std::out << index << "." << std::endl;
