@@ -1,9 +1,9 @@
-#include "obj.h"
+#include "tree.h"
 
 int main() {
 
 	int userInput = 0;
-	Tree tree = new Tree();
+	Tree * tree = new Tree();
 
 	do {
 		std::cout << "0. Quit program" << std::endl;
