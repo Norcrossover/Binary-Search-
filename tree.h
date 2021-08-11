@@ -10,7 +10,8 @@ class Tree {
 
 		// accessors
 		bool retrieve(const char * key, Object *& object) const;
-		bool displayObject(const char * key);
+		bool display(std::ostream & out);
+		bool findObject(const char * key);
 		int getSize() const;
 
 		// mutators
@@ -42,7 +43,7 @@ class Tree {
 		void destroy(Node *& currRoot);
 		
 		// display tree functions
-    		void display(std::ostream& out, Node * currRoot);	
+//    		void display(std::ostream& out, Node * currRoot);	
 		void displayInorder(std::ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
