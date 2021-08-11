@@ -137,6 +137,17 @@ void display(std::ostream& out, Node * currRoot, int& index) {
 
 
 
+void add(Object *& newObject) {
+	if (!curr) {
+		curr = newObject;
+	}
+	else if (strcmp(data->getStr(), curr->data->getKey()) < 0) {
+		add(curr->left, data);
+	}
+	else {
+		add(curr->right, data);
+	}
+}
 
 
 
