@@ -71,7 +71,7 @@ bool Tree::retrieve(const char * key, Node * curr, Object *& object) const {
 
 
 
-bool Tree::displayObject(const char * key) {
+bool Tree::findObject(const char * key) {
 	int idx = 0;
 	Object * object = new Object();
 	if (retrieve(key, object) == false) {
@@ -86,6 +86,61 @@ bool Tree::displayObject(const char * key) {
 		return true;
 	}
 }
+
+
+
+bool display() {
+	int input;
+	std::cout << "Choose which format to display the Tree: " << std::endl;
+	std::cout << "0. Go Back" << std::endl;
+	std::cout << "1. Display Inorder" << std::endl;
+	std::cout << "2. Display Preorder" << std::endl;
+	std::cout << "Enter Number: ";
+	std::cin >> input;
+        if (input == 0) return true;
+	else if (input == 1) {
+		displayInorder(std::ostream& out, Node * currRoot, int& index);
+		return true;
+	}
+	/*
+	else if (input == 2) {
+		display(std::ostream& out, Node * currRoot);
+		return true;
+	}
+	*/
+	else {
+		std::cout << "Invalid Option, returning to main menu..." << std::endl;
+	}
+	std::endl << std::endl;
+	return false;
+}
+
+
+
+void displayInorder(std::ostream& out, Node * currRoot, int& index) const {
+	if (currRoot) {
+		displayInorder(out, currRoot->left, index);
+		std::out << index << "." << std::endl;
+		currRoot->object->display();
+		std::out << std::endl;
+		displayInorder(std::out, currRoot->right, index);
+	}
+}
+
+
+
+/*
+void display(std::ostream& out, Node * currRoot, int& index) {
+
+}
+*/
+
+
+
+
+
+
+
 
 
 
