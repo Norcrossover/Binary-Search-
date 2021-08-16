@@ -129,7 +129,7 @@ void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const 
 
 
 
-void add(Object *& newObject) {
+void Tree::add(Object *& newObject) {
 	if (!curr) {
 		curr = newObject;
 	}
@@ -141,23 +141,3 @@ void add(Object *& newObject) {
 	}
 }
 
-
-
-
-void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const {
-
-}
-
-
-
-void Tree::add(Object *& object) const {
-
-}
-
-
-
-/*
-void Tree::add(const char * key, Object *& object) const {
-	
-}
-*/
