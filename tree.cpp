@@ -88,7 +88,6 @@ bool Tree::findObject(const char * key) {
 
 
 
-<<<<<<< HEAD
 bool Tree::display(std::ostream& out) {
 	int input;
 	std::cout << "Choose which format to display the Tree: " << std::endl;
@@ -129,13 +128,6 @@ void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const 
 
 
 
-/*
-void display(std::ostream& out, Node * currRoot, int& index) {
-
-}
-*/
-
-
 
 void add(Object *& newObject) {
 	if (!curr) {
@@ -149,17 +141,6 @@ void add(Object *& newObject) {
 	}
 }
 
-
-
-
-
-
-
-=======
-void Tree::display(std::ostream& out, Node * currRoot){
->>>>>>> origin
-
-}
 
 
 
