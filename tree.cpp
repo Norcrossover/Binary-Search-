@@ -41,8 +41,10 @@ Tree::~Tree() {
 
 void Tree::destroy(Node *& currRoot) {
 	if (currRoot) {
+		// recurse through the tree
 		destroy(currRoot->left);
 		destroy(currRoot->right);
+		// delete the current node (first being a leaf node) and set it to nullptr
 	        delete currRoot;
 		currRoot = nullptr;
 	}
@@ -150,4 +152,39 @@ void Tree::add(Object *& newObject) {
 		add(curr->right, data);
 	}
 }
+
+
+
+bool Tree::removeKey(const char * key) {
+	return false;
+}
+
+
+
+int Tree::getHeightNode() {
+	
+	return 0;
+}
+
+
+
+int Tree::getHeightEdge() {
+
+	return -1;
+
+}
+
+
+
+int Tree::getMaxObject() {
+	return 0;
+}
+
+
+
+int Tree::getMinObject() {
+
+	return min;
+}
+
 
