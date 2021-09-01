@@ -156,7 +156,43 @@ void Tree::add(Object *& newObject) {
 
 
 bool Tree::removeKey(const char * key) {
-	return false;
+	return removeKey(this->root, key);
+}
+
+
+
+bool Tree::removeKey(Node *& curr, const char * key) {
+	if (!curr) return false;
+	int found = strcmp(curr->getString(), key);
+	if (found == 0) {
+		deleteNode(curr);
+		return true;
+	} 
+	else if (found > 0) {
+		return removeKey(curr->left, key);
+	}
+	else {
+		return removeKey(curr->right, key);
+	}
+}
+
+
+
+// case 1: leaf node deletion (no children)
+// case 2: only child on right
+// case 3: only child on left
+// case 4: two children
+void Tree::deleteNode(Node *& target) {
+	if ((target->right == nullptr) && (target->left == nullptr)) {
+		delete target;
+		target = nullptr;
+	}
+	else if ((target->right != nullptr) && (target->left == nullptr)) {
+	}
+	else if ((target->right == nullptr) && (target->left != nullptr)) {
+	}
+	else {
+	}	
 }
 
 
