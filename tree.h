@@ -47,10 +47,11 @@ class Tree {
 		void destroy(Node *& currRoot);
 		
 		// display tree functions
-    		void display(std::ostream& out, Node * currRoot);	
+// may delete    		void display(std::ostream& out, Node * currRoot);	
 		void displayInorder(std::ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
 		bool retrieve(const char * key, Node * currRoot, Object *& object) const;
 		bool removeKey(Node *& curr, const char * key);
+		void deleteNode(Node *& target);
 };
