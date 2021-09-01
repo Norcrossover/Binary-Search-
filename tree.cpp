@@ -28,6 +28,8 @@ void Tree::initTree(const char * fileName) {
 			size++;
 		}
 	}	
+	std::cerr << "Could not open file! Program Ending" << std::endl;
+	exit(1);
 }
 
 
@@ -101,11 +103,18 @@ bool Tree::findObject(const char * key) {
 
 
 bool Tree::display(std::ostream& out) {
-	int input;
+	int input, index = 0;
+	char buffer[MAX_SIZE];
+	std::cout << "\t";
 	std::cout << "Choose which format to display the Tree: " << std::endl;
+	std::cout << "\t";
 	std::cout << "0. Go Back" << std::endl;
+	std::cout << "\t";
 	std::cout << "1. Display Inorder" << std::endl;
+	std::cout << "\t";
 	std::cout << "2. Display Preorder" << std::endl;
+	std::cin.getline(buffer, MAX_SIZE, '\n');
+	std::cout << "\t";
 	std::cout << "Enter Number: ";
 	std::cin >> input;
         if (input == 0) return true;
@@ -122,7 +131,8 @@ bool Tree::display(std::ostream& out) {
 	else {
 		std::cout << "Invalid Option, returning to main menu..." << std::endl;
 	}
-	std::endl << std::endl;
+	out << std::endl << std::endl;
+	
 	return false;
 }
 
@@ -131,10 +141,11 @@ bool Tree::display(std::ostream& out) {
 void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const {
 	if (currRoot) {
 		displayInorder(out, currRoot->left, index);
-		std::out << index << "." << std::endl;
+		out << index << "." << std::endl;
 		currRoot->object->display();
-		std::out << std::endl;
-		displayInorder(std::out, currRoot->right, index);
+		out << std::endl;
+		index++;
+		displayInorder(out, currRoot->right, index);
 	}
 }
 
@@ -142,14 +153,20 @@ void Tree::displayInorder(std::ostream& out, Node * currRoot, int& index) const 
 
 
 void Tree::add(Object *& newObject) {
+	add(this->root, newObject);
+}
+
+
+
+void Tree::add(Node *& curr, Object *& newObject) {
 	if (!curr) {
-		curr = newObject;
+		curr->object = newObject;
 	}
-	else if (strcmp(object->getStr(), curr->object->getKey()) < 0) {
-		add(curr->left, object);
+	else if (strcmp(newObject->getString(), curr->object->getString()) < 0) {
+		add(curr->left, newObject);
 	}
 	else {
-		add(curr->right, object);
+		add(curr->right, newObject);
 	}
 }
 
@@ -163,7 +180,7 @@ bool Tree::removeKey(const char * key) {
 
 bool Tree::removeKey(Node *& curr, const char * key) {
 	if (!curr) return false;
-	int found = strcmp(curr->getString(), key);
+	int found = strcmp(curr->object->getString(), key);
 	if (found == 0) {
 		deleteNode(curr);
 		return true;
@@ -195,7 +212,7 @@ void Tree::deleteNode(Node *& target) {
 	else if (target->left != nullptr) {
 		Node * temp = target;
 		target = target->right;
-		delete target
+		delete target;
 	}
 	else {
 		Node * prev = nullptr;
@@ -217,7 +234,7 @@ void Tree::deleteNode(Node *& target) {
 }
 
 
-
+/*
 int Tree::getHeightNode() {
 	
 	return 0;
@@ -244,4 +261,4 @@ int Tree::getMinObject() {
 	return min;
 }
 
-
+*/
