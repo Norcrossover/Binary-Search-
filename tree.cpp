@@ -39,6 +39,16 @@ Tree::~Tree() {
 
 
 
+void Tree::destroy(Node *& currRoot) {
+	if (currRoot) {
+		destroy(currRoot->left);
+		destroy(currRoot->right);
+	        delete currRoot;
+		currRoot = nullptr;
+	}
+}
+
+			       
 bool Tree::retrieve(const char * key, Object *& object) const {
 	if (root) {
 		return retrieve(key, root, object);
