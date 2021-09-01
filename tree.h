@@ -13,6 +13,10 @@ class Tree {
 		bool display(std::ostream & out);
 		bool findObject(const char * key);
 		int getSize() const;
+		int getHeightNode();
+		int getHeightEdge();
+		int getMaxObject();
+		int getMinObject();
 
 		// mutators
 		void add(Object *& newObject);
@@ -43,11 +47,7 @@ class Tree {
 		void destroy(Node *& currRoot);
 		
 		// display tree functions
-<<<<<<< HEAD
-//    		void display(std::ostream& out, Node * currRoot);	
-=======
-    	void display(std::ostream& out, Node * currRoot);	
->>>>>>> origin
+    		void display(std::ostream& out, Node * currRoot);	
 		void displayInorder(std::ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
