@@ -145,11 +145,11 @@ void Tree::add(Object *& newObject) {
 	if (!curr) {
 		curr = newObject;
 	}
-	else if (strcmp(data->getStr(), curr->data->getKey()) < 0) {
-		add(curr->left, data);
+	else if (strcmp(object->getStr(), curr->object->getKey()) < 0) {
+		add(curr->left, object);
 	}
 	else {
-		add(curr->right, data);
+		add(curr->right, object);
 	}
 }
 
@@ -187,11 +187,32 @@ void Tree::deleteNode(Node *& target) {
 		delete target;
 		target = nullptr;
 	}
-	else if ((target->right != nullptr) && (target->left == nullptr)) {
+	else if (target->right != nullptr) {
+		Node * temp = target;
+		target = target->left;
+		delete target;
 	}
-	else if ((target->right == nullptr) && (target->left != nullptr)) {
+	else if (target->left != nullptr) {
+		Node * temp = target;
+		target = target->right;
+		delete target
 	}
 	else {
+		Node * prev = nullptr;
+		Node * curr = target->right;
+		if (curr->left != nullptr) {
+			target->right = curr->right;
+		}
+		else {
+			while (curr->left) {
+				prev = curr;
+				curr = curr->left;
+			}
+			prev->left = curr->right;
+		}
+		delete target->object;
+		target->object = curr->object;
+		delete curr;
 	}	
 }
 
