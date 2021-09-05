@@ -6,6 +6,12 @@ Tree::Tree() : root(nullptr), size(0) {}
 
 
 
+Tree::Tree(const char * fileName) {
+	initTree(fileName);
+}
+
+
+
 void Tree::initTree(const char * fileName) {
 	char stringBuffer[MAX_SIZE];
 	int intBuffer = 0;

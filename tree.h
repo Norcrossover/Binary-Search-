@@ -4,6 +4,7 @@ class Tree {
 	public:
 		// constructor and destructor
 		Tree();
+		Tree(const char * fileName);
 		//Tree(aTree);
 		void initTree(const char * fileName);
 		~Tree();
@@ -51,6 +52,7 @@ class Tree {
 		void displayInorder(std::ostream& out, Node * currRoot, int& index) const;
 
 		// Recursive fxns
+		void add(Node *& curr, Object *& newObject);
 		bool retrieve(const char * key, Node * currRoot, Object *& object) const;
 		bool removeKey(Node *& curr, const char * key);
 		void deleteNode(Node *& target);
