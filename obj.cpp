@@ -10,7 +10,7 @@ Object::Object() {
 
 
 Object::~Object() {
-	if (str) delete str;
+	if (str) delete [] str;
 	str = nullptr;
 	num = 0;
 }
@@ -39,14 +39,17 @@ void Object::display() {
 
 
 void Object::setString(const char * string) {
-	if (str) delete str;
-	strcpy(str, string);;
+	std::cout << "string" << std::endl;
+	if (str != nullptr) delete str;
+	this->str = new char[strlen(string)+1];
+	strcpy(this->str, string);
+	std::cout << "this->str" << std::endl;
 }
 
 
 
 void Object::setNumber(const int number) {
-	num = number;
+	this->num = number;
 }
 
 
