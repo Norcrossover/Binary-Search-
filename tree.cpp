@@ -21,21 +21,28 @@ void Tree::initTree(const char * fileName) {
 	if (inputFile.good()) {
 		while (!inputFile.eof()) {
 			Object * object = new Object();
+			std::cout << "delegated memory for object succesfully" << std::endl;
 			// string
-			inputFile.getline(stringBuffer, MAX_SIZE, ',');
+			inputFile.getline(stringBuffer, MAX_SIZE, ';');
+			std::cout << stringBuffer << std::endl;
 			object->setString(stringBuffer);
+			std::cout << object->getString() << std::endl;
 
 			// int val
 			inputFile >> intBuffer;
 			object->setNumber(intBuffer);
+			std::cout << object->getNumber() << std::endl;
 
 			// add the objectect to the tree
 			add(object);
+			std::cout << "succesfully added object" << std::endl;
 			size++;
 		}
 	}	
+	else {
 	std::cerr << "Could not open file! Program Ending" << std::endl;
 	exit(1);
+	}
 }
 
 
@@ -166,7 +173,8 @@ void Tree::add(Object *& newObject) {
 
 void Tree::add(Node *& curr, Object *& newObject) {
 	if (!curr) {
-		curr->object = newObject;
+		//curr->object = newObject;
+		curr = new Node(newObject);
 	}
 	else if (strcmp(newObject->getString(), curr->object->getString()) < 0) {
 		add(curr->left, newObject);
